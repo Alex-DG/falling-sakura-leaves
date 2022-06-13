@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(237, 178, 229, 0.4);
+  font-family: Signika Negative, Asap, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+.dot {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  /* background: url(https://www.clipartmax.com/png/full/184-1848036_petal-clipart-sakura-petal-png.png); */
+  background: url(https://www.pngkey.com/png/full/73-732734_download-png-sakura-cherry-blossom-petal-vector.png);
+  /* background: url(http://talktofill.surge.sh/cherry-blossom.png) no-repeat; */
+  /* background: url(https://image.ibb.co/kyUHab/rose.png); */
+  background-size: 100% 100%;
+}
+html,
+body,
+#container {
+  width: 100%;
+  height: 100%;
+}
+#logo {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  border-radius: 10px;
+}
