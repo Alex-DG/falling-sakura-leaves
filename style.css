@@ -5,12 +5,11 @@ body {
   overflow: hidden;
 }
 .dot {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 20px;
   position: absolute;
-  /* background: url(https://www.clipartmax.com/png/full/184-1848036_petal-clipart-sakura-petal-png.png); */
   background: url(https://www.pngkey.com/png/full/73-732734_download-png-sakura-cherry-blossom-petal-vector.png);
-  /* background: url(http://talktofill.surge.sh/cherry-blossom.png) no-repeat; */
+  /* background: url(http://talktofill.surge.sh/cherry-blossom.png); */
   /* background: url(https://image.ibb.co/kyUHab/rose.png); */
   background-size: 100% 100%;
 }
@@ -26,3 +25,88 @@ body,
   position: absolute;
   border-radius: 10px;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loading-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+  z-index: 2;
+
+  animation-name: bounce;
+  animation-timing-function: ease-out;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.loading-percentage {
+  font-size: 1.2rem;
+  letter-spacing: 0.25rem;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgb(0, 0, 0, 0.5);
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.25, 0.65) translateY(0);
+  }
+  30% {
+    transform: scale(0.65, 1.25) translateY(-25px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+/* .progress,
+.progress-bar {
+  width: 18rem;
+  height: 0.7rem;
+  overflow: hidden;
+
+  -webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 25%);
+}
+
+.progress {
+  position: relative;
+  z-index: 2;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.progress-bar {
+  background-color: rgb(237, 178, 229, 0.7);
+  height: 100%;
+  width: 30%;
+}
+
+.progress-percentage {
+  color: rgb(255, 255, 255);
+  font-size: 0.7rem;
+  display: absolute;
+  z-index: 3;
+} */

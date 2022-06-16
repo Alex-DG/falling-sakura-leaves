@@ -4,24 +4,14 @@ import { gsap } from 'gsap'
 gsap.set('#falling-leaves', { perspective: 600 })
 gsap.set('img', { xPercent: '-50%', yPercent: '-50%' })
 
-var total = 30
-var warp = document.getElementById('falling-leaves'),
-  w = window.innerWidth,
-  h = window.innerHeight
+const total = 30
+const container = document.getElementById('falling-leaves')
+let w = window.innerWidth
+let h = window.innerHeight
 
-for (let i = 0; i < total; i++) {
-  var Div = document.createElement('div')
-  gsap.set(Div, {
-    attr: { class: 'dot' },
-    x: R(0, w),
-    y: R(-200, -150),
-    z: R(-200, 200),
-  })
-  warp.appendChild(Div)
-  animm(Div)
-}
+let allDivs = []
 
-function animm(elm) {
+const animm = (elm) => {
   gsap.to(elm, {
     y: h + 100,
     ease: 'none',
@@ -48,8 +38,45 @@ function animm(elm) {
   })
 }
 
-function R(min, max) {
+const R = (min, max) => {
   return min + Math.random() * (max - min)
 }
 
-// a Pen by DIACO : twitter.com/Diaco_ml  ||  codepen.io/MAW
+const start = () => {
+  for (let i = 0; i < total; i++) {
+    const newDiv = document.createElement('div')
+    gsap.set(newDiv, {
+      attr: { class: 'dot' },
+      x: R(0, w),
+      y: R(-200, -150),
+      z: R(-200, 200),
+    })
+    container.appendChild(newDiv)
+    allDivs.push(newDiv)
+    animm(newDiv)
+  }
+}
+
+start()
+
+const clear = () => {
+  allDivs.forEach((div) => {
+    container.removeChild(div)
+    gsap.killTweensOf(div)
+  })
+  allDivs = []
+}
+
+const adjustSize = () => {
+  const shouldReset = allDivs.length > 0
+  if (shouldReset) {
+    clear()
+    start()
+  }
+}
+
+window.addEventListener('resize', () => {
+  w = window.innerWidth
+  h = window.innerHeight
+  adjustSize()
+})
