@@ -14,13 +14,15 @@ let allDivs = []
 const animm = (elm) => {
   gsap.to(elm, {
     y: h + 100,
+    opacity: 0,
     ease: 'none',
     repeat: -1,
-    delay: -15,
+    delay: -12,
     duration: R(6, 15),
   })
   gsap.to(elm, {
     x: '+=100',
+    opacity: 1,
     rotationZ: R(0, 180),
     repeat: -1,
     yoyo: true,
